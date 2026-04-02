@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>MBXAccessToken</key>
+	<string>$(MAPBOX_ACCESS_TOKEN)</string>
 </dict>
 </plist>
