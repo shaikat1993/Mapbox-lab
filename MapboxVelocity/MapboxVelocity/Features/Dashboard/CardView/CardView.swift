@@ -8,19 +8,27 @@
 import UIKit
 
 class CardView: UIView {
-
+    
+    @IBOutlet weak var contentView: UIView!
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    
+    var onTap: (() -> Void)?
     // -----------------------------------------------------
     // MARK: - Initialization
     // -----------------------------------------------------
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        updateCorners()
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        updateCorners()
+        commonInit()
     }
 
     // -----------------------------------------------------
@@ -39,11 +47,22 @@ class CardView: UIView {
         didSet { updateCorners() }
     }
 
+    private func commonInit() {
+        Bundle.main.loadNibNamed(String(describing: CardView.self),
+                                 owner: self,
+                                 options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth,
+            .flexibleHeight]
+        updateCorners()
+    }
+    
     // -----------------------------------------------------
     // MARK: - Private Utils
     // -----------------------------------------------------
 
-    func updateCorners() {
+    private func updateCorners() {
         if roundedCornerRadius > 0 && roundedCorners != [] {
             var maskLayer: CAShapeLayer
             if let _layer = layer.mask as? CAShapeLayer {
@@ -68,6 +87,17 @@ class CardView: UIView {
             layer.masksToBounds = false
         }
     }
+    
+    func configure(with model: DashboardCardModel) {
+        titleLabel.text    = model.title
+        subtitleLabel.text = model.subTitle
+        iconImageView.image = UIImage(named: model.icon)
+        backgroundImageView.image = UIImage(named: model.backgroundImage)
+    }
+    
+    @IBAction func onButtonPressed(_ sender: Any) {
+        onTap?()
+    }
 }
 
 class RoundedShadowView: UIView {
@@ -77,12 +107,16 @@ class RoundedShadowView: UIView {
             drawShadow()
         }
     }
-    var shadowColor: UIColor =  UIColor(red:0, green:0, blue:0, alpha:0.08) {
+    var shadowColor: UIColor =  UIColor(red:0,
+                                        green:0,
+                                        blue:0,
+                                        alpha:0.08) {
         didSet {
             drawShadow()
         }
     }
-    var shadowOffset: CGSize = CGSize(width: 0, height: 2) {
+    var shadowOffset: CGSize = CGSize(width: 0,
+                                      height: 2) {
         didSet {
             drawShadow()
         }
