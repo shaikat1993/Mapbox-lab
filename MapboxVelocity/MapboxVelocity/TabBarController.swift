@@ -47,11 +47,10 @@ class TabBarController: UITabBarController {
                         .viewController(MarkersViewController.self),
                                  title: "Markers",
                                  image: "mappin.and.ellipse")
-        let settingsNav = makeNav(AppStoryboard
-                            .settings
-                            .viewController(SettingsViewController.self),
-                     title: "Settings",
-                     image: "gearshape")
+        let settingsVC = container.makeSettingsViewController()
+        let settingsNav = makeNav(settingsVC,
+                                  title: "Settings",
+                                  image: "gearshape")
         viewControllers = [dashboardNav,
                            mapNav,
                            markersNav,

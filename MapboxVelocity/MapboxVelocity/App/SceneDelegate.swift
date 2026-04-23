@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let container = DependencyContainer()
-        let tabBar    = container.makeTabBarController()
-    
-        
+        _ = container.mapViewController
+        let tabBar = container.makeTabBarController()
+
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()

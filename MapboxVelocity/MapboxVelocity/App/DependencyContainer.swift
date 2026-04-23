@@ -13,13 +13,24 @@ final class DependencyContainer {
     private(set) lazy var locationService: LocationServiceProtocol = LocationService()
     private(set) lazy var designSystem: DesignSystemProviding = VelocityDesignSystem()
     
+    //MARK: view controllers (eager — created once, reused)
+    private(set) lazy var mapViewController: MapViewController = MapViewController(
+        mapService: mapService,
+        locationService: locationService
+    )
+
     //MARK: factories
     func makeTabBarController() -> TabBarController {
         TabBarController(container: self)
     }
-    
+
     func makeMapViewController() -> MapViewController {
-        MapViewController(mapService: mapService,
-                          locationService: locationService)
+        mapViewController
+    }
+
+    func makeSettingsViewController() -> SettingsViewController {
+        let vc = AppStoryboard.settings.viewController(SettingsViewController.self)
+        vc.configure(mapService: mapService)
+        return vc
     }
 }
