@@ -9,7 +9,8 @@ import CoreLocation
 import Combine
 
 protocol LocationServiceProtocol: AnyObject {
-    var currentLocation: AnyPublisher <CLLocation, Never> { get }
+    var currentLocation: AnyPublisher<CLLocation, Never> { get }
+    var lastKnownLocation: CLLocation? { get }
     func requestPermission()
     func startUpdating()
     func stopUpdating()
