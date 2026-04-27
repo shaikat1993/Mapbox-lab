@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapboxMaps
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
+        // Kick off SDK background workers as early as possible so they're ready by the time the map renders
+        DispatchQueue.global(qos: .userInitiated).async {
+            _ = TileStore.default
+        }
+
         let container = DependencyContainer()
         _ = container.mapViewController
         let tabBar = container.makeTabBarController()
@@ -27,6 +33,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
+
+        // Pre-warm the keyboard so first text field tap is instant
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let field = UITextField()
+            field.isHidden = true
+            self.window?.addSubview(field)
+            field.becomeFirstResponder()
+            field.resignFirstResponder()
+            field.removeFromSuperview()
+        }
 
     }
 

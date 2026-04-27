@@ -8,7 +8,7 @@
 import UIKit
 
 enum AppStoryboard: String {
-    case main      = "Main"
+    case map      = "Map"
     case dashboard = "Dashboard"
     case markers   = "Markers"
     case settings  = "Settings"

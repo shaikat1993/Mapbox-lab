@@ -11,13 +11,23 @@ final class DependencyContainer {
     //MARK: services
     private(set) lazy var mapService: MapServiceProtocol = MapService()
     private(set) lazy var locationService: LocationServiceProtocol = LocationService()
+    private(set) lazy var geocodingService: GeocodingServiceProtocol = GeocodingService()
+    private(set) lazy var directionsService: DirectionsServiceProtocol = DirectionsService()
     private(set) lazy var designSystem: DesignSystemProviding = VelocityDesignSystem()
     
     //MARK: view controllers (eager — created once, reused)
-    private(set) lazy var mapViewController: MapViewController = MapViewController(
-        mapService: mapService,
-        locationService: locationService
-    )
+    private(set) lazy var mapViewController: MapViewController = {
+        let vc = AppStoryboard.map.viewController(MapViewController.self)
+        vc.configure(
+            mapService: mapService,
+            locationService: locationService,
+            tripViewModel: TripViewModel(
+                geocodingService: geocodingService,
+                directionsService: directionsService
+            )
+        )
+        return vc
+    }()
 
     //MARK: factories
     func makeTabBarController() -> TabBarController {
