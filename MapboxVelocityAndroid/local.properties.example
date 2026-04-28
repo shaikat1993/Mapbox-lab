@@ -1,0 +1,6 @@
+## Copy this file to local.properties and fill in your keys.
+## local.properties is git-ignored — never commit your token.
+
+sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+MAPBOX_ACCESS_TOKEN=pk.your_mapbox_token_here
+MAPBOX_DOWNLOADS_TOKEN=sk.your_mapbox_downloads_token_here

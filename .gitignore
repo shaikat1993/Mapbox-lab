@@ -68,3 +68,24 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Android — IDE / build artifacts that leak into repo root
+androidx/
+META-INF/
+*.hprof
+
+# Android Studio
+.idea/
+*.iml
+
+# Android Gradle
+.gradle/
+**/build/
+**/local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing keys
+*.keystore
+*.jks

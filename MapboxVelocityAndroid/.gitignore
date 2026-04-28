@@ -1,0 +1,31 @@
+# ---- Secrets & local config ----
+local.properties
+*.keystore
+*.jks
+
+# ---- Build output ----
+build/
+*/build/
+out/
+
+# ---- Gradle cache & wrapper downloads ----
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+
+# ---- IDE ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# ---- Android Studio captures / profiler ----
+captures/
+*.hprof
+
+# ---- NDK / CMake ----
+.externalNativeBuild/
+.cxx/
+
+# ---- Generated code ----
+gen/
