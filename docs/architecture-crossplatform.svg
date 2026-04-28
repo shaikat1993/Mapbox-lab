@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
+
+  <rect width="900" height="640" fill="#0d1117" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">iOS ↔ Android — How the same concept maps across platforms</text>
+
+  <!-- Column headers -->
+  <rect x="40" y="58" width="370" height="34" fill="#1a2332" rx="8"/>
+  <text x="225" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#007AFF">iOS · Swift / UIKit / Combine</text>
+
+  <rect x="490" y="58" width="370" height="34" fill="#1a2a1a" rx="8"/>
+  <text x="675" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#34C759">Android · Kotlin / Compose / Flow</text>
+
+  <!-- Center divider -->
+  <line x1="450" y1="58" x2="450" y2="630" stroke="#2a2a3a" stroke-width="1.5"/>
+
+  <!-- ── ROW helper: y positions ── -->
+  <!-- Row 1: 102  Row 2: 148  Row 3: 194  Row 4: 240  Row 5: 286
+       Row 6: 332  Row 7: 378  Row 8: 424  Row 9: 470  Row 10: 516
+       Row 11: 562 Row 12: 608 -->
+
+  <!-- ── Category labels ── -->
+
+  <!-- Reactive state -->
+  <rect x="40" y="100" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="116" text-anchor="middle" font-size="10" fill="#8b90a0">Reactive state</text>
+  <text x="225" y="131" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">@Published var state: TripState</text>
+  <rect x="490" y="100" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="116" text-anchor="middle" font-size="10" fill="#8b90a0">Reactive state</text>
+  <text x="675" y="131" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">val state: StateFlow&lt;TripState&gt;</text>
+  <text x="450" y="123" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- One-shot events -->
+  <rect x="40" y="146" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="162" text-anchor="middle" font-size="10" fill="#8b90a0">One-shot event stream</text>
+  <text x="225" y="177" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">PassthroughSubject&lt;MapStyle, Never&gt;</text>
+  <rect x="490" y="146" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="162" text-anchor="middle" font-size="10" fill="#8b90a0">One-shot event stream</text>
+  <text x="675" y="177" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">MutableStateFlow&lt;MapStyle&gt;</text>
+  <text x="450" y="169" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Collect state in view -->
+  <rect x="40" y="192" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="208" text-anchor="middle" font-size="10" fill="#8b90a0">Collect state in view</text>
+  <text x="225" y="223" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">publisher.receive(on: .main).sink { }</text>
+  <rect x="490" y="192" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="208" text-anchor="middle" font-size="10" fill="#8b90a0">Collect state in view</text>
+  <text x="675" y="223" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">collectAsStateWithLifecycle()</text>
+  <text x="450" y="215" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Async work -->
+  <rect x="40" y="238" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="254" text-anchor="middle" font-size="10" fill="#8b90a0">Async network call</text>
+  <text x="225" y="269" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">URLSession.dataTask + completion</text>
+  <rect x="490" y="238" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="254" text-anchor="middle" font-size="10" fill="#8b90a0">Async network call</text>
+  <text x="675" y="269" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">suspend fun + withContext(IO)</text>
+  <text x="450" y="261" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Style load -->
+  <rect x="40" y="284" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="300" text-anchor="middle" font-size="10" fill="#8b90a0">Run code after style loads</text>
+  <text x="225" y="315" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">mapboxMap.onStyleLoaded.observe { }</text>
+  <rect x="490" y="284" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="300" text-anchor="middle" font-size="10" fill="#8b90a0">Run code after style loads</text>
+  <text x="675" y="315" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">MapEffect(key) { map.subscribeStyleLoaded }</text>
+  <text x="450" y="307" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Toggle layer -->
+  <rect x="40" y="330" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="346" text-anchor="middle" font-size="10" fill="#8b90a0">Toggle layer visibility</text>
+  <text x="225" y="361" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">map.setLayerProperty(for:property:value:)</text>
+  <rect x="490" y="330" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="346" text-anchor="middle" font-size="10" fill="#8b90a0">Toggle layer visibility</text>
+  <text x="675" y="361" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">style.setStyleLayerProperty(id, "visibility", Value(...))</text>
+  <text x="450" y="353" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Annotation icon -->
+  <rect x="40" y="376" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="392" text-anchor="middle" font-size="10" fill="#8b90a0">Custom annotation icon</text>
+  <text x="225" y="407" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">PointAnnotation.image = .init(image:name:)</text>
+  <rect x="490" y="376" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="392" text-anchor="middle" font-size="10" fill="#8b90a0">Custom annotation icon</text>
+  <text x="675" y="407" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">rememberIconImage(key, BitmapPainter(...))</text>
+  <text x="450" y="399" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Camera fit -->
+  <rect x="40" y="422" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="438" text-anchor="middle" font-size="10" fill="#8b90a0">Fit camera to route</text>
+  <text x="225" y="453" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">mapboxMap.camera(for: .lineString, padding:)</text>
+  <rect x="490" y="422" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="438" text-anchor="middle" font-size="10" fill="#8b90a0">Fit camera to route</text>
+  <text x="675" y="453" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">mapboxMap.cameraForCoordinates(list, EdgeInsets(...))</text>
+  <text x="450" y="445" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Ride animation timer -->
+  <rect x="40" y="468" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="484" text-anchor="middle" font-size="10" fill="#8b90a0">Ride animation timer</text>
+  <text x="225" y="499" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Timer.scheduledTimer(withTimeInterval: 0.1)</text>
+  <rect x="490" y="468" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="484" text-anchor="middle" font-size="10" fill="#8b90a0">Ride animation timer</text>
+  <text x="675" y="499" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Handler(Looper.getMainLooper()).postDelayed(100)</text>
+  <text x="450" y="491" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Persist settings -->
+  <rect x="40" y="514" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="530" text-anchor="middle" font-size="10" fill="#8b90a0">Persist settings / marker config</text>
+  <text x="225" y="545" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">UserDefaults.standard</text>
+  <rect x="490" y="514" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="530" text-anchor="middle" font-size="10" fill="#8b90a0">Persist settings / marker config</text>
+  <text x="675" y="545" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">DataStore&lt;Preferences&gt;</text>
+  <text x="450" y="537" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Render marker shape -->
+  <rect x="40" y="560" width="370" height="38" fill="#0d1f35" rx="6"/>
+  <text x="225" y="576" text-anchor="middle" font-size="10" fill="#8b90a0">Render marker shape to image</text>
+  <text x="225" y="591" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">UIGraphicsImageRenderer + UIBezierPath</text>
+  <rect x="490" y="560" width="370" height="38" fill="#0d200d" rx="6"/>
+  <text x="675" y="576" text-anchor="middle" font-size="10" fill="#8b90a0">Render marker shape to image</text>
+  <text x="675" y="591" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Canvas + Paint on Bitmap</text>
+  <text x="450" y="583" text-anchor="middle" font-size="14" fill="#4a4a6a">⟷</text>
+
+  <!-- Mapbox token -->
+  <rect x="40" y="606" width="370" height="28" fill="#201800" rx="6"/>
+  <text x="225" y="624" text-anchor="middle" font-size="10" fill="#FF9500">Token key: MBXAccessToken in Info.plist</text>
+  <rect x="490" y="606" width="370" height="28" fill="#201800" rx="6"/>
+  <text x="675" y="619" text-anchor="middle" font-size="10" fill="#FF9500">pk. → BuildConfig   ·   sk. → Maven auth in Gradle</text>
+  <text x="450" y="623" text-anchor="middle" font-size="11" fill="#FF9500">⟷</text>
+
+</svg>

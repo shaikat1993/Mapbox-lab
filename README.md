@@ -29,6 +29,15 @@ Two fully working apps — one in Swift/UIKit, one in Kotlin/Jetpack Compose —
 
 Both apps follow **MVVM + SOLID** with constructor-injected dependencies. The folder structure is identical by design.
 
+### iOS
+![iOS Architecture](docs/architecture-ios.svg)
+
+### Android
+![Android Architecture](docs/architecture-android.svg)
+
+### iOS ↔ Android side-by-side
+![Cross-Platform Translation](docs/architecture-crossplatform.svg)
+
 ```
 App/                    ← composition root, navigation, DependencyContainer
 Core/

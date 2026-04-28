@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="720" fill="#0d1117" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">iOS Architecture — MapboxVelocity</text>
+  <text x="450" y="66" text-anchor="middle" font-size="12" fill="#8b90a0">Swift · UIKit · Combine · MapboxMaps 11.21</text>
+
+  <!-- ── LAYER LABELS (left side) ── -->
+  <text x="18" y="172" font-size="10" font-weight="700" fill="#8b90a0" transform="rotate(-90,18,172)">APP</text>
+  <text x="18" y="310" font-size="10" font-weight="700" fill="#8b90a0" transform="rotate(-90,18,310)">CORE</text>
+  <text x="18" y="470" font-size="10" font-weight="700" fill="#8b90a0" transform="rotate(-90,18,470)">FEATURES</text>
+  <text x="18" y="640" font-size="10" font-weight="700" fill="#8b90a0" transform="rotate(-90,18,640)">SERVICES</text>
+
+  <!-- ══════════════ APP LAYER ══════════════ -->
+  <rect x="40" y="90" width="820" height="110" fill="#1a2332" rx="12" stroke="#2d4a6e" stroke-width="1.5"/>
+  <text x="60" y="112" font-size="11" font-weight="700" fill="#4d9fff">App/</text>
+
+  <!-- SceneDelegate -->
+  <rect x="60" y="120" width="160" height="64" fill="#0d1f35" rx="8" stroke="#2d4a6e" stroke-width="1"/>
+  <text x="140" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">SceneDelegate</text>
+  <text x="140" y="158" text-anchor="middle" font-size="9.5" fill="#8b90a0">Entry point</text>
+  <text x="140" y="173" text-anchor="middle" font-size="9.5" fill="#8b90a0">creates DependencyContainer</text>
+
+  <!-- DependencyContainer -->
+  <rect x="245" y="120" width="200" height="64" fill="#0d1f35" rx="8" stroke="#007AFF" stroke-width="1.5"/>
+  <text x="345" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#007AFF">DependencyContainer</text>
+  <text x="345" y="158" text-anchor="middle" font-size="9.5" fill="#8b90a0">Composition root</text>
+  <text x="345" y="173" text-anchor="middle" font-size="9.5" fill="#8b90a0">Instantiates all services &amp; VCs</text>
+
+  <!-- TabBarController -->
+  <rect x="465" y="120" width="160" height="64" fill="#0d1f35" rx="8" stroke="#2d4a6e" stroke-width="1"/>
+  <text x="545" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">TabBarController</text>
+  <text x="545" y="158" text-anchor="middle" font-size="9.5" fill="#8b90a0">Dashboard · Map</text>
+  <text x="545" y="173" text-anchor="middle" font-size="9.5" fill="#8b90a0">Markers · Settings</text>
+
+  <!-- DesignSystem -->
+  <rect x="645" y="120" width="195" height="64" fill="#0d1f35" rx="8" stroke="#2d4a6e" stroke-width="1"/>
+  <text x="742" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">VelocityDesignSystem</text>
+  <text x="742" y="158" text-anchor="middle" font-size="9.5" fill="#8b90a0">Colors · Typography</text>
+  <text x="742" y="173" text-anchor="middle" font-size="9.5" fill="#8b90a0">Spacing · DesignSystemProviding</text>
+
+  <!-- Arrow SceneDelegate → DependencyContainer -->
+  <line x1="220" y1="152" x2="243" y2="152" stroke="#4d9fff" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <!-- Arrow DependencyContainer → TabBarController -->
+  <line x1="445" y1="152" x2="463" y2="152" stroke="#4d9fff" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+
+  <!-- ══════════════ CORE LAYER ══════════════ -->
+  <rect x="40" y="218" width="820" height="110" fill="#1a2a1a" rx="12" stroke="#2d5e2d" stroke-width="1.5"/>
+  <text x="60" y="240" font-size="11" font-weight="700" fill="#34C759">Core/</text>
+
+  <!-- Protocols group -->
+  <rect x="60" y="248" width="430" height="64" fill="#0d200d" rx="8" stroke="#2d5e2d" stroke-width="1"/>
+  <text x="275" y="264" text-anchor="middle" font-size="10" font-weight="700" fill="#34C759">Protocols/  (interfaces — zero platform imports)</text>
+  <text x="142" y="284" text-anchor="middle" font-size="9" fill="#8b90a0">MapServiceProtocol</text>
+  <text x="242" y="284" text-anchor="middle" font-size="9" fill="#8b90a0">GeocodingServiceProtocol</text>
+  <text x="348" y="284" text-anchor="middle" font-size="9" fill="#8b90a0">DirectionsServiceProtocol</text>
+  <text x="456" y="284" text-anchor="middle" font-size="9" fill="#8b90a0">LocationServiceProtocol</text>
+  <text x="190" y="300" text-anchor="middle" font-size="9" fill="#8b90a0">styleDidChange: PassthroughSubject</text>
+  <text x="390" y="300" text-anchor="middle" font-size="9" fill="#8b90a0">overlayDidChange: PassthroughSubject</text>
+
+  <!-- Models + Extensions -->
+  <rect x="510" y="248" width="180" height="64" fill="#0d200d" rx="8" stroke="#2d5e2d" stroke-width="1"/>
+  <text x="600" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#34C759">Models &amp; Extensions</text>
+  <text x="600" y="286" text-anchor="middle" font-size="9" fill="#8b90a0">GeocodingResult</text>
+  <text x="600" y="301" text-anchor="middle" font-size="9" fill="#8b90a0">CLLocationCoordinate2D+Bearing</text>
+
+  <!-- Design -->
+  <rect x="706" y="248" width="134" height="64" fill="#0d200d" rx="8" stroke="#2d5e2d" stroke-width="1"/>
+  <text x="773" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#34C759">Design/</text>
+  <text x="773" y="286" text-anchor="middle" font-size="9" fill="#8b90a0">DesignSystem.swift</text>
+  <text x="773" y="301" text-anchor="middle" font-size="9" fill="#8b90a0">DesignSystemProviding</text>
+
+  <!-- ══════════════ FEATURES LAYER ══════════════ -->
+  <rect x="40" y="346" width="820" height="210" fill="#1f1a2e" rx="12" stroke="#4a3d6e" stroke-width="1.5"/>
+  <text x="60" y="368" font-size="11" font-weight="700" fill="#BF5AF2">Features/</text>
+
+  <!-- Dashboard -->
+  <rect x="60" y="376" width="170" height="164" fill="#140d20" rx="8" stroke="#4a3d6e" stroke-width="1"/>
+  <text x="145" y="396" text-anchor="middle" font-size="10" font-weight="700" fill="#BF5AF2">Dashboard/</text>
+  <text x="145" y="414" text-anchor="middle" font-size="9" fill="#ffffff">DashboardViewController</text>
+  <text x="145" y="430" text-anchor="middle" font-size="9" fill="#8b90a0">UICollectionView cards</text>
+  <line x1="80" y1="438" x2="210" y2="438" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="145" y="454" text-anchor="middle" font-size="9" fill="#ffffff">DashboardViewModel</text>
+  <text x="145" y="470" text-anchor="middle" font-size="9" fill="#8b90a0">@Published cards</text>
+  <line x1="80" y1="478" x2="210" y2="478" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="145" y="494" text-anchor="middle" font-size="9" fill="#ffffff">DashboardCardModel</text>
+  <text x="145" y="510" text-anchor="middle" font-size="9" fill="#8b90a0">CardView (UIView)</text>
+  <text x="145" y="526" text-anchor="middle" font-size="9" fill="#8b90a0">background · icon · title</text>
+
+  <!-- Map -->
+  <rect x="248" y="376" width="190" height="164" fill="#140d20" rx="8" stroke="#4a3d6e" stroke-width="1"/>
+  <text x="343" y="396" text-anchor="middle" font-size="10" font-weight="700" fill="#BF5AF2">Map/</text>
+  <text x="343" y="414" text-anchor="middle" font-size="9" fill="#ffffff">MapViewController</text>
+  <text x="343" y="430" text-anchor="middle" font-size="9" fill="#8b90a0">Annotations · Overlays · Tap</text>
+  <line x1="268" y1="438" x2="418" y2="438" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="343" y="454" text-anchor="middle" font-size="9" fill="#ffffff">TripViewModel</text>
+  <text x="343" y="470" text-anchor="middle" font-size="9" fill="#8b90a0">@Published state · debounce</text>
+  <line x1="268" y1="478" x2="418" y2="478" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="343" y="494" text-anchor="middle" font-size="9" fill="#ffffff">RideAnimator</text>
+  <text x="343" y="510" text-anchor="middle" font-size="9" fill="#8b90a0">Timer 100ms · bearing</text>
+  <text x="343" y="526" text-anchor="middle" font-size="9" fill="#ffffff">TripBottomSheetView (SwiftUI)</text>
+
+  <!-- Markers -->
+  <rect x="456" y="376" width="175" height="164" fill="#140d20" rx="8" stroke="#4a3d6e" stroke-width="1"/>
+  <text x="543" y="396" text-anchor="middle" font-size="10" font-weight="700" fill="#BF5AF2">Markers/</text>
+  <text x="543" y="414" text-anchor="middle" font-size="9" fill="#ffffff">MarkersViewController</text>
+  <text x="543" y="430" text-anchor="middle" font-size="9" fill="#8b90a0">Shape · Color · Photo picker</text>
+  <line x1="476" y1="438" x2="611" y2="438" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="543" y="454" text-anchor="middle" font-size="9" fill="#ffffff">MarkersViewModel</text>
+  <text x="543" y="470" text-anchor="middle" font-size="9" fill="#8b90a0">@Published config · UserDefaults</text>
+  <line x1="476" y1="478" x2="611" y2="478" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="543" y="494" text-anchor="middle" font-size="9" fill="#ffffff">MarkerImageRenderer</text>
+  <text x="543" y="510" text-anchor="middle" font-size="9" fill="#8b90a0">UIGraphicsImageRenderer</text>
+  <text x="543" y="526" text-anchor="middle" font-size="9" fill="#8b90a0">PIN · DOT · CIRCLE · STAR</text>
+
+  <!-- Settings -->
+  <rect x="649" y="376" width="191" height="164" fill="#140d20" rx="8" stroke="#4a3d6e" stroke-width="1"/>
+  <text x="744" y="396" text-anchor="middle" font-size="10" font-weight="700" fill="#BF5AF2">Settings/</text>
+  <text x="744" y="414" text-anchor="middle" font-size="9" fill="#ffffff">SettingsViewController</text>
+  <text x="744" y="430" text-anchor="middle" font-size="9" fill="#8b90a0">UICollectionView style grid</text>
+  <line x1="669" y1="438" x2="820" y2="438" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="744" y="454" text-anchor="middle" font-size="9" fill="#ffffff">MapStyleCell · OverlayCell</text>
+  <text x="744" y="470" text-anchor="middle" font-size="9" fill="#8b90a0">StyleSectionCell</text>
+  <line x1="669" y1="478" x2="820" y2="478" stroke="#4a3d6e" stroke-width="0.5"/>
+  <text x="744" y="494" text-anchor="middle" font-size="9" fill="#ffffff">SettingsViewModel</text>
+  <text x="744" y="510" text-anchor="middle" font-size="9" fill="#8b90a0">calls mapService.updateStyle()</text>
+  <text x="744" y="526" text-anchor="middle" font-size="9" fill="#8b90a0">calls mapService.updateOverlay()</text>
+
+  <!-- ══════════════ SERVICES LAYER ══════════════ -->
+  <rect x="40" y="574" width="820" height="120" fill="#1f1a10" rx="12" stroke="#5e4d10" stroke-width="1.5"/>
+  <text x="60" y="596" font-size="11" font-weight="700" fill="#FF9500">Services/  (implement Core/Protocols — only layer that imports MapboxMaps)</text>
+
+  <rect x="60" y="604" width="145" height="74" fill="#201800" rx="8" stroke="#5e4d10" stroke-width="1"/>
+  <text x="132" y="622" text-anchor="middle" font-size="10" font-weight="700" fill="#FF9500">MapService</text>
+  <text x="132" y="639" text-anchor="middle" font-size="9" fill="#8b90a0">styleDidChange</text>
+  <text x="132" y="654" text-anchor="middle" font-size="9" fill="#8b90a0">overlayDidChange</text>
+  <text x="132" y="669" text-anchor="middle" font-size="9" fill="#8b90a0">PassthroughSubject</text>
+
+  <rect x="220" y="604" width="155" height="74" fill="#201800" rx="8" stroke="#5e4d10" stroke-width="1"/>
+  <text x="297" y="622" text-anchor="middle" font-size="10" font-weight="700" fill="#FF9500">GeocodingService</text>
+  <text x="297" y="639" text-anchor="middle" font-size="9" fill="#8b90a0">Mapbox Geocoding v5</text>
+  <text x="297" y="654" text-anchor="middle" font-size="9" fill="#8b90a0">country from Locale</text>
+  <text x="297" y="669" text-anchor="middle" font-size="9" fill="#8b90a0">URLSession</text>
+
+  <rect x="390" y="604" width="155" height="74" fill="#201800" rx="8" stroke="#5e4d10" stroke-width="1"/>
+  <text x="467" y="622" text-anchor="middle" font-size="10" font-weight="700" fill="#FF9500">DirectionsService</text>
+  <text x="467" y="639" text-anchor="middle" font-size="9" fill="#8b90a0">Mapbox Directions v5</text>
+  <text x="467" y="654" text-anchor="middle" font-size="9" fill="#8b90a0">GeoJSON coordinates</text>
+  <text x="467" y="669" text-anchor="middle" font-size="9" fill="#8b90a0">URLSession</text>
+
+  <rect x="560" y="604" width="145" height="74" fill="#201800" rx="8" stroke="#5e4d10" stroke-width="1"/>
+  <text x="632" y="622" text-anchor="middle" font-size="10" font-weight="700" fill="#FF9500">LocationService</text>
+  <text x="632" y="639" text-anchor="middle" font-size="9" fill="#8b90a0">CLLocationManager</text>
+  <text x="632" y="654" text-anchor="middle" font-size="9" fill="#8b90a0">currentLocation</text>
+  <text x="632" y="669" text-anchor="middle" font-size="9" fill="#8b90a0">AnyPublisher</text>
+
+  <rect x="720" y="604" width="140" height="74" fill="#201800" rx="8" stroke="#5e4d10" stroke-width="1"/>
+  <text x="790" y="622" text-anchor="middle" font-size="10" font-weight="700" fill="#FF9500">AnnotationService</text>
+  <text x="790" y="639" text-anchor="middle" font-size="9" fill="#8b90a0">PointAnnotationManager</text>
+  <text x="790" y="654" text-anchor="middle" font-size="9" fill="#8b90a0">batch assignment</text>
+  <text x="790" y="669" text-anchor="middle" font-size="9" fill="#8b90a0">MapboxMaps</text>
+
+  <!-- ══════════════ DATA FLOW ARROWS ══════════════ -->
+  <!-- DependencyContainer → Features (injects services) -->
+  <line x1="345" y1="184" x2="345" y2="344" stroke="#007AFF" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <!-- Features → Services (via protocols) -->
+  <line x1="450" y1="556" x2="450" y2="572" stroke="#FF9500" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+  <!-- Core Protocols → Features -->
+  <line x1="450" y1="328" x2="450" y2="344" stroke="#34C759" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-green)"/>
+
+  <!-- ── Arrowhead defs ── -->
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#007AFF"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#34C759"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#FF9500"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <line x1="560" y1="708" x2="580" y2="708" stroke="#007AFF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="585" y="712" font-size="9" fill="#8b90a0">injects dependencies</text>
+  <line x1="680" y1="708" x2="700" y2="708" stroke="#FF9500" stroke-width="1.5"/>
+  <text x="705" y="712" font-size="9" fill="#8b90a0">calls service via protocol</text>
+  <line x1="810" y1="708" x2="830" y2="708" stroke="#34C759" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="835" y="712" font-size="9" fill="#8b90a0">conforms to</text>
+
+</svg>
